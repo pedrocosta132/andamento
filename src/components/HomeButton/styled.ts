@@ -4,7 +4,7 @@ import colors from "../../constants/colors";
 export const styled = StyleSheet.create({
   button: {
     flex: 1,
-    padding: 8,
+    padding: 4,
     margin: 4,
     display: "flex",
     flexDirection: "row",

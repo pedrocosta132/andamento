@@ -1,13 +1,8 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text } from "react-native";
 import Layout from "../components/Layout";
-import HomeButton from "../components/HomeButton";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import HomeButton, { HomeButtonProps } from "../components/HomeButton";
 
-const homeButtons: {
-  icon: keyof typeof Ionicons.glyphMap;
-  text: string;
-  onPress: () => void;
-}[] = [
+const homeButtons: (HomeButtonProps)[] = [
   { icon: "add", text: "Button1", onPress: () => {} },
   { icon: "add", text: "Button2", onPress: () => {} },
   { icon: "add", text: "Button3", onPress: () => {} },

@@ -3,7 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import colors from "../../constants/colors";
 import { styled } from "./styled";
 
-type HomeButtonProps = {
+export type HomeButtonProps = {
   icon: keyof typeof Ionicons.glyphMap;
   text: string;
   onPress: () => void;

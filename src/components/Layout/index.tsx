@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { SafeAreaView } from "react-native";
 import { styled } from "./styled";
 import Header from "../Header";
 
@@ -9,9 +9,9 @@ type LayoutProps = {
 
 export default function Layout({ children, showHeader = true }: LayoutProps) {
   return (
-    <View style={styled.container}>
+    <SafeAreaView style={styled.container}>
       {showHeader && <Header />}
       {children}
-    </View>
+    </SafeAreaView>
   );
 }
