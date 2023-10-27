@@ -11,8 +11,15 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Home" component={Home} />
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{ title: "Home | andamento" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
