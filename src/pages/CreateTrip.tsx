@@ -1,8 +1,9 @@
-import { FlatList, Text } from "react-native";
+import { FlatList, ScrollView, Text } from "react-native";
 import Layout from "../components/Layout";
 import Stepper from "../components/Stepper";
 import { useState } from "react";
 import { Trip } from "../types";
+import CTAButtons from "../components/CTAButtons";
 
 export default function CreateTrip() {
   const [step, setStep] = useState<number>(0);
@@ -10,18 +11,24 @@ export default function CreateTrip() {
 
   return (
     <Layout>
-      <Stepper
-        steps={[
-          { icon: "enter", title: "Ponto de partida" },
-          { icon: "exit", title: "Destino" },
-          { icon: "card", title: "Pagamento" },
-          { icon: "checkmark-circle-outline", title: "Confirmação" },
-        ]}
-        activeIndex={step}
+      <ScrollView style={{ flex: 1, width: "100%" }}>
+        <Stepper
+          steps={[
+            { icon: "enter", title: "Ponto de partida" },
+            { icon: "exit", title: "Destino" },
+            { icon: "card", title: "Pagamento" },
+            { icon: "checkmark-circle-outline", title: "Confirmação" },
+          ]}
+          activeIndex={step}
+        />
+      </ScrollView>
+      <CTAButtons
+        showConfirmButton={true}
+        onConfirm={() => setStep((prev) => prev + 1)}
+        confirmDisabled={step > 2}
+        showReturnButton={step > 0}
+        onReturn={() => setStep((prev) => prev - 1)}
       />
-
-      <button onClick={() => setStep((prev) => prev - 1)}>-1</button>
-      <button onClick={() => setStep((prev) => prev + 1)}>+1</button>
     </Layout>
   );
 }
