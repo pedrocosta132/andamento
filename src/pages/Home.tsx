@@ -1,15 +1,22 @@
 import { FlatList, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Layout from "../components/Layout";
 import HomeButton, { HomeButtonProps } from "../components/HomeButton";
 
-const homeButtons: (HomeButtonProps)[] = [
-  { icon: "add", text: "Button1", onPress: () => {} },
-  { icon: "add", text: "Button2", onPress: () => {} },
-  { icon: "add", text: "Button3", onPress: () => {} },
-  { icon: "add", text: "Button4", onPress: () => {} },
-];
-
 export default function Home() {
+  const navigation = useNavigation();
+
+  const homeButtons: HomeButtonProps[] = [
+    {
+      icon: "add",
+      text: "Create trip",
+      onPress: () => navigation.navigate("CreateList" as never),
+    },
+    { icon: "add", text: "Button2", onPress: () => {} },
+    { icon: "add", text: "Button3", onPress: () => {} },
+    { icon: "add", text: "Button4", onPress: () => {} },
+  ];
+
   return (
     <Layout>
       <Text>Home</Text>
@@ -22,7 +29,7 @@ export default function Home() {
             onPress={item.onPress}
           />
         )}
-        keyExtractor={item => item.text}
+        keyExtractor={(item) => item.text}
         numColumns={2}
         style={{ width: "100%", paddingHorizontal: 8 }}
       />
