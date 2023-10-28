@@ -1,13 +1,4 @@
-export type Zone = {
-  code: string;
-};
-
-export type Station = {
-  code: string;
-  name: string;
-  zone: Zone;
-  connections?: string[];
-};
+import { Station } from "../types";
 
 export const stations: Station[] = [
   {

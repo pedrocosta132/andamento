@@ -42,7 +42,7 @@ function Step({ icon, title, isActive, isDone }: Step & { isActive: boolean, isD
           },
         ]}
       >
-        <Ionicons name={icon} size={32} color={colors.white} />
+        <Ionicons name={icon} size={18} color={colors.white} />
       </View>
       {isActive && <Text style={styled.stepTitle}>{title}</Text>}
     </View>
