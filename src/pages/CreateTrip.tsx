@@ -6,6 +6,7 @@ import { Step, Trip } from "../types";
 import CTAButtons from "../components/CTAButtons";
 import { useNavigation } from "@react-navigation/native";
 import StartingPointStep from "../components/Steps/StartingPointStep";
+import DestinationStep from "../components/Steps/DestinationStep";
 
 const steps: Step[] = [
   { icon: "enter", title: "Ponto de partida" },
@@ -71,6 +72,15 @@ export default function CreateTrip() {
             station={trip?.startingPoint}
             onStationCodeChange={(newStation) =>
               handleTripFieldChange("startingPoint", newStation)
+            }
+          />
+        )}
+        {step === 1 && (
+          <DestinationStep
+            station={trip?.destination}
+            startingStation={trip?.startingPoint}
+            onStationChange={(newStation) =>
+              handleTripFieldChange("destination", newStation)
             }
           />
         )}
