@@ -9,7 +9,7 @@ export const styled = StyleSheet.create({
     marginHorizontal: "auto",
     paddingTop: Constants.statusBarHeight,
     flex: 1,
-    alignItems: "center",
+    alignItems: "stretch",
     backgroundColor: colors.background,
     overflow: "hidden",
   },

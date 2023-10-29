@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Button, Pressable, Text, TextInput, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
+import TextInput from "../../TextInput";
+import Button from "../../Button";
 import { Station } from "../../../types";
-import { styled } from "./styled";
 import apiService from "../../../services/mockApi";
 
 type StartingPointStepProps = {
@@ -42,8 +43,11 @@ export default function StartingPointStep({
             <></>
           </View>
           <View>
-            <TextInput value={inputCode} onChangeText={setInputCode} />
-            <Button title="validar codigo" onPress={handleCodeChange} />
+            <TextInput value={inputCode} onChange={setInputCode} />
+            <Button
+              text="Validar codigo"
+              onPress={handleCodeChange}
+            />
           </View>
           
         </>
