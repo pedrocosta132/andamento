@@ -1,7 +1,8 @@
-import { View, Text, Button, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { styled } from "./styled";
 import colors from "../../constants/colors";
+import Button from "../Button";
+import { styled } from "./styled";
 
 type CTAButtonsProps = {
   showReturnButton: boolean;
@@ -21,21 +22,21 @@ export default function CTAButtons({
   return (
     <View style={styled.buttons}>
       {showReturnButton && (
-        <Pressable
-          style={[styled.button, styled.returnButton]}
+        <Button
+          icon="chevron-back-outline"
+          textColor={colors.primary}
+          bgColor={colors.background}
           onPress={onReturn}
-        >
-          <Ionicons name="chevron-back-outline" size={32} color={colors.primary} />
-        </Pressable>
+        />
       )}
       {showConfirmButton && (
-        <Pressable
-          style={[styled.button, styled.confirmButton]}
+        <Button
+          text="Confimar"
+          textStyles={{ textTransform: "uppercase" }}
+          buttonStyles={{ flexGrow: 1, marginLeft: 8 }}
           onPress={onConfirm}
-          disabled={confirmDisabled}
-        >
-          Confirmar
-        </Pressable>
+          isDisabled={confirmDisabled}
+        />
       )}
     </View>
   );

@@ -1,12 +1,8 @@
 import { View, Text } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import colors from "../../constants/colors";
+import { Step } from "../../types";
 import { styled } from "./styled";
-
-type Step = {
-  icon: keyof typeof Ionicons.glyphMap;
-  title: string;
-};
 
 type StepperProps = {
   steps: Step[];
@@ -17,7 +13,7 @@ export default function Stepper({ steps = [], activeIndex = 0 }: StepperProps) {
   return (
     <View style={styled.container}>
       {steps.map((step, index) => (
-        <Step
+        <StepItem
           key={step.title}
           icon={step.icon}
           title={step.title}
@@ -29,7 +25,7 @@ export default function Stepper({ steps = [], activeIndex = 0 }: StepperProps) {
   );
 }
 
-function Step({ icon, title, isActive, isDone }: Step & { isActive: boolean, isDone: boolean }) {
+function StepItem({ icon, title, isActive, isDone }: Step & { isActive: boolean, isDone: boolean }) {
 
   return (
     <View style={[styled.step, { flexGrow: isActive ? 1 : 0 }]}>

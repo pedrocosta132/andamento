@@ -1,3 +1,5 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
+
 export type Zone = {
   code: string;
 };
@@ -15,4 +17,9 @@ export type Trip = {
   paymentMethod?: string;
   price?: number;
   startingDate?: Date;
+};
+
+export type Step = {
+  icon: keyof typeof Ionicons.glyphMap;
+  title: string;
 };
