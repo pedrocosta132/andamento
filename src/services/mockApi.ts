@@ -7,7 +7,7 @@ type ApiServiceTypes = {
 
 const apiService: ApiServiceTypes = {
   getStation: (code) => new Promise((resolve, reject) => {
-    const station = stations.find((station) => station.code === code);
+    const station = stations.find((station) => station.code.toUpperCase() === code.toUpperCase());
     !station ? reject("Not found") : resolve(station);
   })
 };

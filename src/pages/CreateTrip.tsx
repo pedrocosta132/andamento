@@ -52,8 +52,20 @@ export default function CreateTrip() {
 
   return (
     <Layout>
-      <ScrollView style={{ flex: 1, paddingHorizontal: 8 }}>
-        <Stepper steps={steps} activeIndex={step} />
+      <Stepper
+        steps={steps}
+        activeIndex={step}
+        style={{ paddingHorizontal: 8 }}
+      />
+      <ScrollView
+        style={{ flex: 1, paddingHorizontal: 8 }}
+        contentContainerStyle={{
+          flex: 1,
+          justifyContent: "center",
+          display: "flex",
+          gap: 24,
+        }}
+      >
         {step === 0 && (
           <StartingPointStep
             station={trip?.startingPoint}

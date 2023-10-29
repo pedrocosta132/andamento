@@ -1,4 +1,4 @@
-import { Pressable, Text } from "react-native";
+import { Pressable, StyleProp, Text, TextStyle } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import colors from "../../constants/colors";
 import { styled } from "./styled";
@@ -11,8 +11,8 @@ export type ButtonProps = {
   textColor?: string;
   borderColor?: string;
   isDisabled?: boolean;
-  buttonStyles?: any;
-  textStyles?: any;
+  buttonStyles?: StyleProp<any>;
+  textStyles?: StyleProp<TextStyle>;
 };
 
 export default function Button({

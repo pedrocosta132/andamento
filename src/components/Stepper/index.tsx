@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleProp, ViewStyle } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import colors from "../../constants/colors";
 import { Step } from "../../types";
@@ -7,11 +7,16 @@ import { styled } from "./styled";
 type StepperProps = {
   steps: Step[];
   activeIndex?: number;
+  style?: StyleProp<ViewStyle>;
 };
 
-export default function Stepper({ steps = [], activeIndex = 0 }: StepperProps) {
+export default function Stepper({
+  steps = [],
+  activeIndex = 0,
+  style = {},
+}: StepperProps) {
   return (
-    <View style={styled.container}>
+    <View style={[styled.container, style]}>
       {steps.map((step, index) => (
         <StepItem
           key={step.title}
@@ -25,8 +30,12 @@ export default function Stepper({ steps = [], activeIndex = 0 }: StepperProps) {
   );
 }
 
-function StepItem({ icon, title, isActive, isDone }: Step & { isActive: boolean, isDone: boolean }) {
-
+function StepItem({
+  icon,
+  title,
+  isActive,
+  isDone,
+}: Step & { isActive: boolean; isDone: boolean }) {
   return (
     <View style={[styled.step, { flexGrow: isActive ? 1 : 0 }]}>
       <View
@@ -34,7 +43,7 @@ function StepItem({ icon, title, isActive, isDone }: Step & { isActive: boolean,
           styled.stepIcon,
           {
             backgroundColor: isActive || isDone ? colors.primary : "#505050",
-            opacity: isActive ? 1 : 0.45
+            opacity: isActive ? 1 : 0.45,
           },
         ]}
       >
