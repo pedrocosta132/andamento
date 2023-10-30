@@ -1,9 +1,11 @@
+import { paymentMethods } from "../data/paymentMethods";
 import { stations } from "../data/stations";
-import { Station } from "../types";
+import { PaymentMethod, Station } from "../types";
 
 type ApiServiceTypes = {
   getStation: (code: string) => Promise<Station>;
   getStations: () => Promise<Station[]>;
+  getPaymentMethods: () => Promise<PaymentMethod[]>
 }
 
 const apiService: ApiServiceTypes = {
@@ -11,8 +13,11 @@ const apiService: ApiServiceTypes = {
     const station = stations.find((station) => station.code.toUpperCase() === code.toUpperCase());
     !station ? reject("Not found") : resolve(station);
   }),
-  getStations: () => new Promise((resolve, reject) => {
+  getStations: () => new Promise((resolve) => {
     return resolve(stations);
+  }),
+  getPaymentMethods: () => new Promise((resolve) => {
+    return resolve(paymentMethods);
   }),
 };
 

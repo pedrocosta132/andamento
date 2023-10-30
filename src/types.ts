@@ -14,7 +14,7 @@ export type Station = {
 export type Trip = {
   startingPoint?: Station;
   destination?: Station;
-  paymentMethod?: string;
+  paymentMethod?: PaymentMethod;
   price?: number;
   startingDate?: Date;
 };
@@ -23,3 +23,9 @@ export type Step = {
   icon: keyof typeof Ionicons.glyphMap;
   title: string;
 };
+
+export type PaymentMethod = {
+  code: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  name: string;
+}

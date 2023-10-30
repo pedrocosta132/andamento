@@ -9,7 +9,7 @@ export default function Home() {
   const homeButtons: HomeButtonProps[] = [
     {
       icon: "add",
-      text: "Create trip",
+      text: "Iniciar viagem",
       onPress: () => navigation.navigate("CreateList" as never),
     },
     { icon: "add", text: "Button2", onPress: () => {} },
@@ -19,7 +19,6 @@ export default function Home() {
 
   return (
     <Layout>
-      <Text>Home</Text>
       <FlatList
         data={homeButtons}
         renderItem={({ item }) => (

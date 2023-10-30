@@ -7,11 +7,12 @@ import CTAButtons from "../components/CTAButtons";
 import { useNavigation } from "@react-navigation/native";
 import StartingPointStep from "../components/Steps/StartingPointStep";
 import DestinationStep from "../components/Steps/DestinationStep";
+import PaymentStep from "../components/Steps/PaymentStep";
 
 const steps: Step[] = [
   { icon: "enter", title: "Ponto de partida" },
   { icon: "exit", title: "Destino" },
-  { icon: "card", title: "Pagamento" },
+  { icon: "card", title: "Método de pagamento" },
   { icon: "checkmark-circle-outline", title: "Confirmação" },
 ];
 
@@ -81,6 +82,14 @@ export default function CreateTrip() {
             startingStation={trip?.startingPoint}
             onStationChange={(newStation) =>
               handleTripFieldChange("destination", newStation)
+            }
+          />
+        )}
+        {step === 2 && (
+          <PaymentStep
+            paymentMethod={trip?.paymentMethod}
+            onChange={(newPaymentMethod) =>
+              handleTripFieldChange("paymentMethod", newPaymentMethod)
             }
           />
         )}
