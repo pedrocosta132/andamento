@@ -31,6 +31,8 @@ export default function CTAButtons({
       {showConfirmButton && (
         <Button
           text="Confimar"
+          bgColor={confirmDisabled ? colors.gray2 : colors.primary}
+          borderColor={confirmDisabled ? colors.gray2 : colors.primary}
           textStyles={{ textTransform: "uppercase" }}
           buttonStyles={{ flexGrow: 1, marginLeft: 8 }}
           onPress={onConfirm}

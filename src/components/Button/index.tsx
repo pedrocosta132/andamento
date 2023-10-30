@@ -11,6 +11,7 @@ export type ButtonProps = {
   textColor?: string;
   borderColor?: string;
   isDisabled?: boolean;
+  iconSize?: number;
   buttonStyles?: StyleProp<any>;
   textStyles?: StyleProp<TextStyle>;
 };
@@ -23,6 +24,7 @@ export default function Button({
   textColor = colors.white,
   borderColor = colors.primary,
   isDisabled = false,
+  iconSize = 48,
   buttonStyles = {},
   textStyles = {},
 }: ButtonProps) {
@@ -36,7 +38,7 @@ export default function Button({
       onPress={onPress}
       disabled={isDisabled}
     >
-      {icon && <Ionicons name={icon} size={48} color={textColor} />}
+      {icon && <Ionicons name={icon} size={iconSize} color={textColor} />}
       {text && (
         <Text style={[styled.text, { color: textColor }, textStyles]}>
           {text}

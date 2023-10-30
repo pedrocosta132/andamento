@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import StartingPointStep from "../components/Steps/StartingPointStep";
 import DestinationStep from "../components/Steps/DestinationStep";
 import PaymentStep from "../components/Steps/PaymentStep";
+import SummaryStep from "../components/Steps/SummaryStep";
 
 const steps: Step[] = [
   { icon: "enter", title: "Ponto de partida" },
@@ -91,6 +92,12 @@ export default function CreateTrip() {
             onChange={(newPaymentMethod) =>
               handleTripFieldChange("paymentMethod", newPaymentMethod)
             }
+          />
+        )}
+        {step === 3 && (
+          <SummaryStep
+            trip={trip!}
+            onStepChange={(newStep) => setStep(newStep)}
           />
         )}
       </ScrollView>

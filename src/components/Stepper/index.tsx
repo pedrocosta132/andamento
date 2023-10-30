@@ -42,7 +42,7 @@ function StepItem({
         style={[
           styled.stepIcon,
           {
-            backgroundColor: isActive || isDone ? colors.primary : "#505050",
+            backgroundColor: isActive || isDone ? colors.primary : colors.gray2,
             opacity: isActive ? 1 : 0.45,
           },
         ]}
