@@ -5,8 +5,21 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./src/pages/Home";
 import CreateTrip from "./src/pages/CreateTrip";
 import Trip from "./src/pages/Trip";
+import { CompleteTrip } from "./src/types";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Home: undefined;
+  CreateList: undefined;
+  Trip: { trip: CompleteTrip };
+};
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (

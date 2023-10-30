@@ -6,6 +6,7 @@ import { CompleteTrip } from "../../types";
 import Button from "../Button";
 import colors from "../../constants/colors";
 import { useNavigation } from "@react-navigation/native";
+import Countdown, { zeroPad } from "react-countdown";
 
 type ActiveTripMiniatureProps = {
   trip: CompleteTrip;
@@ -16,21 +17,33 @@ export default function ActiveTripMiniature({
 }: ActiveTripMiniatureProps) {
   const navigation = useNavigation();
 
-  const expireDate = useMemo(() => new Date(trip.expires), [trip])
-
   return (
     <View style={styled.container}>
       <View>
         <View style={styled.itinerary}>
-          <Text style={styled.itineraryText}>{trip.details.startingPoint?.name}</Text>
-          <Ionicons  name="arrow-forward" size={16} color={colors.gray2}/>
-          <Text style={styled.itineraryText}>{trip.details.destination?.name}</Text>
+          <Text style={styled.itineraryText}>
+            {trip.details.startingPoint?.name}
+          </Text>
+          <Ionicons name="arrow-forward" size={16} color={colors.gray2} />
+          <Text style={styled.itineraryText}>
+            {trip.details.destination?.name}
+          </Text>
         </View>
-        <Text style={styled.expireText}>Válido até {`${expireDate.getHours()}:${expireDate.getMinutes()}`}</Text>
+        <Text style={styled.expireText}>
+          Válido por{" "}
+          <Countdown
+            date={trip.expires}
+            renderer={(countdown) => (
+              <>{`${zeroPad(countdown.minutes)}:${zeroPad(
+                countdown.seconds
+              )}`}</>
+            )}
+          />
+        </Text>
       </View>
-      <Button 
+      <Button
         text="Ver detalhes"
-        onPress={() => navigation.navigate("Trip" as never)}
+        onPress={() => navigation.navigate("Trip", { trip: trip })}
         textStyles={{ fontSize: 16 }}
       />
     </View>
