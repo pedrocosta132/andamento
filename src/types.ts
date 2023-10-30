@@ -16,8 +16,14 @@ export type Trip = {
   destination?: Station;
   paymentMethod?: PaymentMethod;
   price?: number;
-  startingDate?: Date;
 };
+
+export type CompleteTrip = {
+  id: string;
+  details: Trip;
+  expires: Date;
+  validationCode: string;
+}
 
 export type Step = {
   icon: keyof typeof Ionicons.glyphMap;

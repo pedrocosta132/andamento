@@ -9,6 +9,7 @@ import StartingPointStep from "../components/Steps/StartingPointStep";
 import DestinationStep from "../components/Steps/DestinationStep";
 import PaymentStep from "../components/Steps/PaymentStep";
 import SummaryStep from "../components/Steps/SummaryStep";
+import apiService from "../services/mockApi";
 
 const steps: Step[] = [
   { icon: "enter", title: "Ponto de partida" },
@@ -40,13 +41,18 @@ export default function CreateTrip() {
     setStep((prev) => prev - 1);
   };
 
-  const handleConfirmButtonClick = () => {
-    if (step >= steps.length - 1) {
-      console.log("end");
+  const handleConfirmButtonClick = async () => {
+    if (step < steps.length - 1) {
+      setStep((prev) => prev + 1);
       return;
     }
+    
+    const saved = await apiService.createTrip(trip);
+    if(!saved) {
+      console.log("falhou");
+    }
 
-    setStep((prev) => prev + 1);
+    navigation.navigate("Home" as never);
   };
 
   const handleTripFieldChange = (name: string, value: any) => {
