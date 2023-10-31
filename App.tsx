@@ -9,7 +9,7 @@ import { CompleteTrip } from "./src/types";
 
 export type RootStackParamList = {
   Home: undefined;
-  CreateList: undefined;
+  CreateTrip: undefined;
   Trip: { trip: CompleteTrip };
 };
 
@@ -36,7 +36,7 @@ export default function App() {
             options={{ title: "Ínicio | andamento" }}
           />
           <Stack.Screen
-            name="CreateList"
+            name="CreateTrip"
             component={CreateTrip}
             options={{ title: "Iniciar viagem | andamento" }}
           />

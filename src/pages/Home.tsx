@@ -6,6 +6,7 @@ import HomeButton, { HomeButtonProps } from "../components/HomeButton";
 import ActiveTripMiniature from "../components/ActiveTripMiniature";
 import apiService from "../services/mockApi";
 import { CompleteTrip } from "../types";
+import StartButton from "../components/StartButton";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -14,14 +15,10 @@ export default function Home() {
 
   const homeButtons: HomeButtonProps[] = useMemo(
     () => [
-      {
-        icon: "add",
-        text: "Iniciar viagem",
-        onPress: () => navigation.navigate("CreateList" as never),
-      },
-      { icon: "add", text: "Button2", onPress: () => {} },
-      { icon: "add", text: "Button3", onPress: () => {} },
-      { icon: "add", text: "Button4", onPress: () => {} },
+      { icon: "bookmarks-sharp", text: "As minhas viagens", onPress: () => {} },
+      { icon: "md-help-circle", text: "Ajuda", onPress: () => {} },
+      { icon: "ios-map", text: "Mapas e horários", onPress: () => {} },
+      { icon: "information-circle", text: "Conhecer o metro", onPress: () => {} },
     ],
     []
   );
@@ -45,6 +42,7 @@ export default function Home() {
   return (
     <Layout>
       <ScrollView style={{ flex: 1 }}>
+        <StartButton />
         <FlatList
           data={homeButtons}
           renderItem={({ item }) => (
