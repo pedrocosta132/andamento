@@ -7,6 +7,7 @@ import ActiveTripMiniature from "../components/ActiveTripMiniature";
 import apiService from "../services/mockApi";
 import { CompleteTrip } from "../types";
 import StartButton from "../components/StartButton";
+import Alert from "../components/Alert";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -43,6 +44,7 @@ export default function Home() {
     <Layout>
       <ScrollView style={{ flex: 1 }}>
         <StartButton />
+        <Alert text="Adipisci voluptate accusantium nam. Tempora accusantium itaque minima nisi. Provident aut ut itaque maiores. Hic ea est aut voluptates. Autem cum minus eum neque autem laborum. Hic asperiores molestiae tenetur possimus." />
         <FlatList
           data={homeButtons}
           renderItem={({ item }) => (
