@@ -28,10 +28,10 @@ This project represents a personal endeavor dedicated to my exploration of mobil
 - ✅ Homepage
 - ✅ Start a trip feature
 - ✅ Trip validation feature
-- ❌ Modern design
-- ❌ Review accessibility
-- ❌ Review performance
-- ❌ Exploring testing on React Native
+- 🔨 Modern design
+- 🔨 Review accessibility
+- 🔨 Review performance
+- 🔨 Exploring testing on React Native
 
 ### Links
 
