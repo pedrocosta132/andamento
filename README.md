@@ -1,6 +1,6 @@
 # Andamento
 
-Andamento is a remake of the app [Anda by Andante](https://linhandante.com/comprar/app-anda/), but without all the tech requirements and smartphone permitions. Only an internet connection is needed (and the camera optionally).
+Andamento is a proof-of-concept remake of the app [Anda by Andante](https://linhandante.com/comprar/app-anda/), but without all the tech requirements and smartphone permitions. Only an internet connection is needed (and the camera optionally).
 
 ## Table of contents
 
